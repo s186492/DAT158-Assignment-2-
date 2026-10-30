@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detector AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            width: 450px;
+            max-width: 85%;
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 130px;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: vertical;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .spam {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .ham {
+            background: #dcfce7;
+            color: #166534;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Spam Detector AI</h1>
+        <p>Enter a message to check if it is spam.</p>
+
+        <form method="POST">
+            <textarea name="message"
+                      placeholder="Write your message here..."
+                      required>{{ message }}</textarea>
+            <button type="submit">Analyze Message</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result {{ prediction }}">
+                {% if prediction == "spam" %}
+                    <h2>Spam detected!</h2>
+                    <p>This message looks like spam.</p>
+                {% else %}
+                    <h2>Not Spam</h2>
+                    <p>This message looks safe.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
