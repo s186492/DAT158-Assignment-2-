@@ -17,15 +17,6 @@ Two classification models were trained and evaluated:
 Both models use TF-IDF for text vectorization.
 Logistic Regression was selected for the final application because it achieved better recall and F1-score.
 
-Model Performance
-
-| Metric | Naive Bayes | Logistic Regression |
-
-| Accuracy   | 96.05%      | 98.39% |
-| Precision  | 100.00%     | 95.17% |
-| Recall     | 70.47%      | 92.62% |
-| F1-score   | 82.68%      | 93.88% |
-
 How to Run the Website:
 1. Clone the repository.
 2. Install the required Python dependencies:
